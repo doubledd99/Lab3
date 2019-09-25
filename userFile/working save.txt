@@ -1,0 +1,106 @@
+/*
+	Daniel Dooley
+	C++ 1st Semester 2019
+	Due: Due Date 9/26/19
+	Lab number 3 Daniel Dooley
+	Compute and output the mean and standard deviation of a set of four integers that are inputted by a file.
+*/
+
+//Libraries used for this project
+#include <string>
+#include <iostream>
+#include <stdlib.h>
+#include <fstream>
+#include <math.h>
+
+using namespace std;
+
+//Function
+int meanStd(int num1, int num2, int num3, int num4);
+
+//strings used to describe the file path of the input and output files
+string inputFile = "D:/coding/userFile/inMeanStd.dat";
+string outputFile = "D:/coding/userFile/outMeanStd.dat";
+
+//numbers that are inputted by the player
+int pNum1;
+int pNum2;
+int pNum3;
+int pNum4;
+
+//numbers that are inputted by the computer files
+int num1;
+int num2;
+int num3;
+int num4;
+
+//stores the mean of computer inputted numbers
+float mean;
+
+int main() {
+	ifstream inFile;
+	ofstream outFile;
+
+	inFile.open(inputFile);
+	outFile.open(outputFile);
+
+	inFile >> num1 >> num2 >> num3 >> num4;
+	mean = (float(num1) + num2 + num3 + num4) / 4;
+
+	cout << "The mean of the file integers is: " << mean << endl;
+
+	int diff1;
+	int diff2;
+	int diff3;
+	int diff4;
+	float diff;
+
+	diff1 = mean - num1;
+	diff2 = mean - num2;
+	diff3 = mean - num3;
+	diff4 = mean - num4;
+
+	diff = sqrt((pow(diff1, 2)+ pow(diff2, 2)+ pow(diff3, 2)+ pow(diff4, 2))/4);
+
+	cout << "The standard deviation of file integers is: " << diff << endl;
+
+	cout << "Insert an integer then press enter:";
+	cin >> pNum1;
+	cout << "Insert a second integer then press enter:";
+	cin >> pNum2;
+	cout <<"Insert a third integer then press enter:";
+	cin >> pNum3;
+	cout << "Insert a fourth integer then press enter:";
+	cin >> pNum4;
+	
+	float pmean;
+	pmean = (pNum1 + pNum2 + pNum3 + pNum4)/4.0;
+	cout << "The mean of user entered files is: " << pmean << endl;
+
+	int pdiff1;
+	int pdiff2;
+	int pdiff3;
+	int pdiff4;
+
+	pdiff1 = mean - pNum1;
+	pdiff2 = mean - pNum2;
+	pdiff3 = mean - pNum3;
+	pdiff4 = mean - pNum4;
+
+	float pdiff;
+
+	pdiff = sqrt((pow(pdiff1, 2) + pow(pdiff2, 2) + pow(pdiff3, 2) + pow(pdiff4, 2)) / 4);
+
+	cout << "The standard deviation of user inputted integers is: " << pdiff << endl;
+
+	outFile << "File's mean: "<< mean << endl << "File's standard deviation: "<< diff << endl << "Player inputted mean: "<< pmean << endl << "Player inputted standard deviation: "<< pdiff;
+	int meanStd(int num1, int num2, int num3, int num4);
+	inFile.close();
+	outFile.close();
+	return 0;
+}
+int meanStd(int num1,int num2,int num3,int num4) {
+
+
+	return (float(num1) + num2 + num3 + num4) / 4;
+}
