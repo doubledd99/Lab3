@@ -22,12 +22,6 @@ int meanStd();
 string inputFile = "D:/coding/userFile/inMeanStd.dat";
 string outputFile = "D:/coding/userFile/outMeanStd.dat";
 
-//numbers that are inputted by the player
-int pNum1;
-int pNum2;
-int pNum3;
-int pNum4;
-
 //numbers that are inputted by the computer files
 int num1;
 int num2;
